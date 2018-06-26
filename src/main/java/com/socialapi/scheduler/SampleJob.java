@@ -123,8 +123,10 @@ public class SampleJob extends QuartzJobBean {
 		
 				try {
 					log.info("saving data in a file: postimpressions_lifetime");
-					String filename="src/main/resources/postimpressions_lifetime_"+pageId+".json";
+					String directorypath="src/main/resources/"+"folder_"+dateFormat2.format(Calendar.getInstance().getTime());
+					String filename=directorypath+"/postimpressions_lifetime_"+pageId+".json";
 		Path newFilePath = Paths.get(filename);
+		Path directory = Paths.get(directorypath);
 		File file = new File(filename);
 		if (file.exists() && file.isFile())
 		  {
@@ -132,7 +134,7 @@ public class SampleJob extends QuartzJobBean {
 			log.info("deleteing file");
 		  file.delete();
 		  }
-	
+		Files.createDirectories(directory);
 		Files.createFile(newFilePath);
 		//Object to JSON in file
 		//ClassLoader classLoader = getClass().getClassLoader();
