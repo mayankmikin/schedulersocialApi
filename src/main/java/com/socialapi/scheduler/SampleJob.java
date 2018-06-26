@@ -1,3 +1,4 @@
+
 package com.socialapi.scheduler;
 
 import java.io.File;
@@ -42,6 +43,7 @@ public class SampleJob extends QuartzJobBean {
 	// Invoked if a Job data map entry with that name
 	public void setName(String name) {
 		this.name = name;
+		
 	}
 
 	@Override
@@ -130,6 +132,7 @@ public class SampleJob extends QuartzJobBean {
 			log.info("deleteing file");
 		  file.delete();
 		  }
+	
 		Files.createFile(newFilePath);
 		//Object to JSON in file
 		//ClassLoader classLoader = getClass().getClassLoader();
@@ -213,9 +216,10 @@ public class SampleJob extends QuartzJobBean {
 		
 				try {
 					log.info("saving data in a file: postimpressions_lifetime");
-					String filename="src/main/resources/allpost_data_perday_"+dateFormat2.format(Calendar
-							.getInstance().getTime())+pageId+".json";
-		Path newFilePath = Paths.get(filename);
+					String directorypath="src/main/resources/"+"folder_"+dateFormat2.format(Calendar.getInstance().getTime());
+					String filename=directorypath+"/allpost_data_perday_"+dateFormat2.format(Calendar.getInstance().getTime())+pageId+".json";
+					Path directory = Paths.get(directorypath);
+					Path newFilePath = Paths.get(filename);
 		File file = new File(filename);
 		if (file.exists() && file.isFile())
 		  {
@@ -223,7 +227,9 @@ public class SampleJob extends QuartzJobBean {
 			log.info("deleteing file");
 		  file.delete();
 		  }
+		Files.createDirectories(directory);
 		Files.createFile(newFilePath);
+		
 		//Object to JSON in file
 		//ClassLoader classLoader = getClass().getClassLoader();
 		
