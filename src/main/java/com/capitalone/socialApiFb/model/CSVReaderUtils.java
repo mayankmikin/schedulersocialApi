@@ -3,7 +3,9 @@ package com.capitalone.socialApiFb.model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CSVReaderUtils {
 	
@@ -58,6 +60,28 @@ public class CSVReaderUtils {
             e.printStackTrace();
         }
         return impressions;
+	}
+	public static List<String> tweetUrlConverter(String csvFile,String cvsSplitBy)
+	{
+        String line = "";
+        List<String> urls=new ArrayList<String>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+        	int count=0;
+            while ((line = br.readLine()) != null) {
+            	if(count>0)
+            	{
+                // use comma as separator
+                String[] lines = line.split(cvsSplitBy);
+                //System.out.println(lines[1]);
+                urls.add(lines[1]);
+            	}
+            	count++;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return urls;
 	}
 
 }

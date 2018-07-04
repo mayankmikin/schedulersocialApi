@@ -1,16 +1,33 @@
 package com.socialapi.scheduler;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+import com.capitalone.socialApiFb.model.CSVReaderUtils;
 
 public class Test {
 	static String timeStamp = "2014-12-14T18:23:17+0000";
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ENGLISH);
 	static SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-	
+	static RestTemplate restTemplate = new RestTemplate();
 	public static void main(String[] args) throws IOException {
 		/*try {
 			System.out.println("Unix timestamp: " + dateFormat.parse(timeStamp).getTime());
@@ -47,12 +64,64 @@ public class Test {
 
         writer.flush();
         writer.close();*/
-		checkCSVreader();
+		
+		try {
+			checkCSVreader();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
-	public static void checkCSVreader()
+	public static void checkCSVreader() throws Exception
 	{
+		String tweeturlfilepath="src/main/resources/tweetUrlData";
+		String tweeturl=tweeturlfilepath+"/tweetdata.csv";
+		List<String>urls=CSVReaderUtils.tweetUrlConverter(tweeturl, ",");
+		int count=0;
+		for(String url:urls)
+		{
+			if(count==0)
+			{
+				String htmlpage = restTemplate.getForObject(url, String.class);
+				//System.out.println(htmlpage);
+				 String filename="src/main/resources/tweetUrlData/input.html";
+				 writehtmlinfile(filename, htmlpage);
+				 File input = new File(filename);
+				 Document doc = Jsoup.parse(input, "UTF-8");
+				
+				Elements links = doc.select("a[href]").addClass("twitter-timeline-link").select("a[data-expanded-url]").eq(1);
+				// a with href
+				 //System.out.println(links);
+				 //System.out.println(links.get(0).absUrl("data-expanded-url"));
+				 String bitlyurl=links.get(0).absUrl("data-expanded-url");
+				 HttpHeaders headers = new HttpHeaders();
+				 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+				 MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
+				 map.add("s", bitlyurl);
+
+				 HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+
+				 ResponseEntity<String> response = restTemplate.postForEntity( "http://urlex.org/", request , String.class );
+				//System.out.println(response);
+				writehtmlinfile(filename, response.toString());
+				input = new File(filename);
+				  doc = Jsoup.parse(input, "UTF-8");
+				
+				 links = doc.select("a[href]").select("a[rel=\"external nofollow\"]").eq(0);
+				System.out.println(links.get(0).absUrl("href"));
+				 /*for(Element e:links)
+				{
+					System.out.println(e.baseUri());
+				}*/
+
+			}
+			
+			
+			count++;
+		}
 		
 	}
 	
@@ -60,6 +129,25 @@ public class Test {
 	    final Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE, -1);
 	    return cal.getTime();
+	}
+	public static void writehtmlinfile(String filename, String htmlpage)
+	{
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+
+			
+
+			bw.write(htmlpage);
+			
+			// no need to close it.
+			//bw.close();
+
+			System.out.println("Done");
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
 	}
 
 }
