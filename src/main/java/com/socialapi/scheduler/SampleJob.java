@@ -10,7 +10,10 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -21,6 +24,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.web.client.RestTemplate;
 
+import com.capitalone.socialApiFb.model.CSVReaderUtils;
 import com.capitalone.socialApiFb.model.CSVUtils;
 import com.capitalone.socialApiFb.model.Comments;
 import com.capitalone.socialApiFb.model.PagePostImpression;
@@ -111,7 +115,7 @@ public class SampleJob extends QuartzJobBean {
 		// set columns in csv
 		CSVUtils.writeLine(impressions_writer, Arrays.asList("PostID ","Reaction Name","Count Value", "Date"));
 		
-		
+		HashMap<String, Integer> impressions_new=new HashMap<>();
 		for(Post p: posts.getData())
 		{
 			url=env.getProperty("base.url")+p.getId()+"/insights?"
@@ -131,16 +135,71 @@ public class SampleJob extends QuartzJobBean {
 
 				for(PagePostImpression po:impressions.getData())
 				{
-					CSVUtils.writeLine(impressions_writer, Arrays.asList(p.getId(),po.getName(),po.getValues().get(0).get("value").asText(),dateFormat2.format(Calendar.getInstance().getTime())));	
-					
+					String val="0";
+					if(!po.getValues().get(0).get("value").asText().equals(""))
+					{
+						val=po.getValues().get(0).get("value").asText();
+					}
+					CSVUtils.writeLine(impressions_writer, Arrays.asList(p.getId(),po.getName(),val,dateFormat2.format(Calendar.getInstance().getTime())));	
+					impressions_new.put(p.getId()+"_"+po.getName(), Integer.parseInt(val));
 				}
 				
 		}
 		impressions_writer.flush();
 		impressions_writer.close();
-		//log.info("impressions are: "+alldata);
+		// read old files
 		
-
+		// read old file 
+		impressions_directorypath="src/main/resources/"+"folder_impressions_"+dateFormat2.format(yesterday());
+		impressionsfilename=impressions_directorypath+"/impressions_perpost_data_perday_"+dateFormat2.format(yesterday())+"_"+pageId+".csv";
+				
+				 HashMap<String, Integer> oldimpressions=CSVReaderUtils.readPostImpressionsFile(impressionsfilename, ",");
+				System.out.println("***** old impressions ******");
+			
+				// calculate delta
+				// write the delta
+				impressions_directorypath="src/main/resources/"+"folder_impressions_delta_"+dateFormat2.format(Calendar.getInstance().getTime());
+				impressionsfilename=impressions_directorypath+"/impressions_perpost_delta_perday_"+dateFormat2.format(Calendar.getInstance().getTime())+"_"+pageId+".csv";
+				  directory = Paths.get(impressions_directorypath);
+					 newFilePath = Paths.get(impressionsfilename);	
+				 file = new File(impressionsfilename);
+					if (file.exists() && file.isFile())
+					{
+					log.info("filealready exists by name "+impressionsfilename);
+					log.info("deleteing file");
+					file.delete();
+					}
+					Files.createDirectories(directory);
+					Files.createFile(newFilePath);
+					//calculating delta and directly writing them into files
+					impressions_writer = new FileWriter(impressionsfilename);
+					CSVUtils.writeLine(impressions_writer, Arrays.asList("PageID_PostID_ImpressionType", "count","Date"));
+				for(Map.Entry<String, Integer> entry:impressions_new.entrySet())
+				{
+					// data is present in both calculate delta or else write as is
+					System.out.println("key: "+entry.getKey());
+					if(oldimpressions.containsKey(entry.getKey()))
+					{
+						String deltacount=Integer.toString(entry.getValue()-oldimpressions.get(entry.getKey()));
+						
+						System.out.println("delta is: "+deltacount);
+						CSVUtils.writeLine(impressions_writer, Arrays.asList(entry.getKey().toString(),deltacount,dateFormat2.format(Calendar.getInstance().getTime())));
+					}
+					else
+					{
+						CSVUtils.writeLine(impressions_writer, Arrays.asList(entry.getKey().toString(),entry.getValue().toString(),dateFormat2.format(Calendar.getInstance().getTime())));
+					}
+					
+					
+				}
+				impressions_writer.flush();
+				impressions_writer.close();
+				System.out.println("********** old impressions");
+				for(Map.Entry<String, Integer> entry:oldimpressions.entrySet())
+				{
+					System.out.println(entry.getKey());
+				}
+				System.out.println("saved delta and data file for impressions");
 	return alldata;
 	
 	}
@@ -178,7 +237,7 @@ public class SampleJob extends QuartzJobBean {
 	File file = new File(commentsfilename);
 	if (file.exists() && file.isFile())
 	{
-	log.info("filealready exists by name "+filename);
+	log.info("filealready exists by name "+commentsfilename);
 	log.info("deleteing file");
 	file.delete();
 	}
@@ -186,7 +245,7 @@ public class SampleJob extends QuartzJobBean {
 	Files.createFile(newFilePath);
 		FileWriter comments_writer = new FileWriter(commentsfilename);
 		CSVUtils.writeLine(comments_writer, Arrays.asList("PostID ", "Count Value", "Date"));
-			
+		HashMap<String, Integer> comments_new=new HashMap<>();	
 		for(Post p: posts.getData())
 		{
 			
@@ -203,18 +262,55 @@ public class SampleJob extends QuartzJobBean {
 				node = restTemplate.getForObject(url, JsonNode.class);
 				Comments comments=mapper.convertValue(node, Comments.class);	
 			CSVUtils.writeLine(comments_writer, Arrays.asList(p.getId(),comments.getSummary().get("total_count").asText(),dateFormat2.format(Calendar.getInstance().getTime())));	
+			comments_new.put(p.getId(),Integer.parseInt(comments.getSummary().get("total_count").asText()));
+		
 		}
 		comments_writer.flush();
 		comments_writer.close();
 		log.info("impressions are: "+alldata);
 		// read old file 
-		// calculate delta 
-		// write the delta
-
+		 comments_directorypath="src/main/resources/"+"folder_comments_"+dateFormat2.format(yesterday());
+		 commentsfilename=comments_directorypath+"/comments_perpost_data_perday_"+dateFormat2.format(yesterday())+"_"+pageId+".csv";
 		
-		//JsonNode savenode=mapper.convertValue(, JsonNode.class);
-			//mapper.writerWithDefaultPrettyPrinter().writeValue(file,alldata);
-
+		 HashMap<String, Integer> oldcomments=CSVReaderUtils.readCommentsFile(commentsfilename, ",");
+		System.out.println("***** old comments ******");
+	
+		// calculate delta
+		// write the delta
+		 comments_directorypath="src/main/resources/"+"folder_comments_delta_"+dateFormat2.format(Calendar.getInstance().getTime());
+		 commentsfilename=comments_directorypath+"/comments_perpost_delta_perday_"+dateFormat2.format(Calendar.getInstance().getTime())+"_"+pageId+".csv";
+		  directory = Paths.get(comments_directorypath);
+			 newFilePath = Paths.get(commentsfilename);	
+		 file = new File(commentsfilename);
+			if (file.exists() && file.isFile())
+			{
+			log.info("filealready exists by name "+commentsfilename);
+			log.info("deleteing file");
+			file.delete();
+			}
+			Files.createDirectories(directory);
+			Files.createFile(newFilePath);
+			//calculating delta and directly writing them into files
+			comments_writer = new FileWriter(commentsfilename);
+			CSVUtils.writeLine(comments_writer, Arrays.asList("PostID ", "Count Value", "Date"));
+		for(Map.Entry<String, Integer> entry:comments_new.entrySet())
+		{
+			// data is present in both calculate delta or else write as is
+			if(oldcomments.containsKey(entry.getKey()))
+			{
+				String deltacount=Integer.toString(entry.getValue()-oldcomments.get(entry.getKey()));
+				CSVUtils.writeLine(comments_writer, Arrays.asList(entry.getKey().toString(),deltacount,dateFormat2.format(Calendar.getInstance().getTime())));
+			}
+			else
+			{
+				CSVUtils.writeLine(comments_writer, Arrays.asList(entry.getKey().toString(),entry.getValue().toString(),dateFormat2.format(Calendar.getInstance().getTime())));
+			}
+			
+			
+		}
+		comments_writer.flush();
+		comments_writer.close();
+		System.out.println("saved delta and data file for comments");
 				} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -228,7 +324,11 @@ public class SampleJob extends QuartzJobBean {
 		
 	}
 	
-	
+	public static Date yesterday() {
+	    final Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE, -1);
+	    return cal.getTime();
+	}
 }
 
 

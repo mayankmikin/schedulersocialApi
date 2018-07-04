@@ -1,25 +1,18 @@
 package com.socialapi.scheduler;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
-import com.capitalone.socialApiFb.model.CSVUtils;
-
 public class Test {
+	static String timeStamp = "2014-12-14T18:23:17+0000";
+	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ENGLISH);
+	static SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+	
 	public static void main(String[] args) throws IOException {
-		String timeStamp = "2014-12-14T18:23:17+0000";
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ENGLISH);
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-		try {
+		/*try {
 			System.out.println("Unix timestamp: " + dateFormat.parse(timeStamp).getTime());
 		System.out.println(dateFormat2.format(new Date(dateFormat.parse(timeStamp).getTime())));
 		} catch (ParseException e) {
@@ -53,7 +46,20 @@ public class Test {
         }
 
         writer.flush();
-        writer.close();
+        writer.close();*/
+		checkCSVreader();
+	}
+	
+	
+	public static void checkCSVreader()
+	{
+		
+	}
+	
+	public static Date yesterday() {
+	    final Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE, -1);
+	    return cal.getTime();
 	}
 
 }
