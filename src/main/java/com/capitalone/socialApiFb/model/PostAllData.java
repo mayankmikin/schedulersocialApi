@@ -1,6 +1,7 @@
 package com.capitalone.socialApiFb.model;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class PostAllData {
 	ArrayList<PagePostImpression> allimpressionsData=new ArrayList<>();
@@ -28,10 +29,17 @@ public class PostAllData {
 	public void setAllcommentsData(ArrayList<Comments> allcommentsData) {
 		this.allcommentsData = allcommentsData;
 	}
+
 	@Override
 	public String toString() {
 		return "PostAllData [allimpressionsData=" + allimpressionsData
-				+ ", allcommentsData=" + allcommentsData + "]";
+				+ ", allcommentsData=" + allcommentsData
+				+ ", allsharedpostsData=" + allsharedpostsData
+				+ ", getAllsharedpostsData()=" + getAllsharedpostsData()
+				+ ", getAllimpressionsData()=" + getAllimpressionsData()
+				+ ", getAllcommentsData()=" + getAllcommentsData()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 	public PostAllData() {
 		super();
@@ -44,6 +52,5 @@ public class PostAllData {
 		this.allcommentsData = allcommentsData;
 	}
 
-	
 	
 }
