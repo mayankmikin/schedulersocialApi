@@ -116,6 +116,11 @@ public class Test {
 					{
 						bitlyurl=links.get(0).absUrl("data-expanded-url");
 					}
+					else
+					{
+						System.out.println("unable to find the bitly expanded version for this url:");
+						System.out.println(lines[1]);
+					}
 					
 					 HttpHeaders headers = new HttpHeaders();
 					 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
