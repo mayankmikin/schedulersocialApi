@@ -1,10 +1,14 @@
 package com.socialapi.scheduler;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +26,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.capitalone.socialApiFb.model.CSVReaderUtils;
+import com.capitalone.socialApiFb.model.CSVUtils;
 
 public class Test {
 	static String timeStamp = "2014-12-14T18:23:17+0000";
@@ -66,24 +71,100 @@ public class Test {
         writer.close();*/
 		
 		try {
-			checkCSVreader();
+			//checkCSVreader();
+			convertBitlyTweet();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
+	//main ends here
+	public static void convertBitlyTweet() throws Exception
+	{
+		String tweeturlfilepath="src/main/resources/tweetUrlData";
+		String tweeturl=tweeturlfilepath+"/tweetdata.csv";
+		String convertedTweet=tweeturlfilepath+"/tweetdataConverted.csv";
+		 String line = "";
+	        List<String> urls=new ArrayList<String>();
+	        FileWriter convertedTweet_writer = new FileWriter(convertedTweet);
+			// set columns in csv
+			
+			
+	        try (BufferedReader br = new BufferedReader(new FileReader(tweeturl))) {
+	        	int count=0;
+	            while ((line = br.readLine()) != null) {
+	            	String[] lines = line.split(",");
+	            	if(count>0)
+	            	{
+	                // use comma as separator
+	                
+	                //System.out.println(lines[1]);
+	                //urls.add(lines[1]);
+	                String htmlpage = restTemplate.getForObject(lines[1], String.class);
+					//System.out.println(htmlpage);
+					 String filename="src/main/resources/tweetUrlData/input.html";
+					 writehtmlinfile(filename, htmlpage);
+					 File input = new File(filename);
+					 Document doc = Jsoup.parse(input, "UTF-8");
+					
+					Elements links = doc.select("a[href]").addClass("twitter-timeline-link").select("a[data-expanded-url]").eq(1);
+					// a with href
+					 //System.out.println(links);
+					 //System.out.println(links.get(0).absUrl("data-expanded-url"));
+					String bitlyurl="Unable To fetch the expanded bitly url";
+					if(links.size()>0)
+					{
+						bitlyurl=links.get(0).absUrl("data-expanded-url");
+					}
+					
+					 HttpHeaders headers = new HttpHeaders();
+					 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+					 MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
+					 map.add("s", bitlyurl);
+
+					 HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+
+					 ResponseEntity<String> response = restTemplate.postForEntity( "http://urlex.org/", request , String.class );
+					//System.out.println(response);
+					writehtmlinfile(filename, response.toString());
+					input = new File(filename);
+					  doc = Jsoup.parse(input, "UTF-8");
+					
+					 links = doc.select("a[href]").select("a[rel=\"external nofollow\"]").eq(0);
+					System.out.println(links.get(0).absUrl("href"));
+					List<String>values=new ArrayList<>();
+					values.addAll(Arrays.asList(lines));
+            		values.add(links.get(0).absUrl("href"));
+            		CSVUtils.writeLine(convertedTweet_writer, values);
+	            	}
+	            	else
+	            	{
+	            		List<String>header=new ArrayList<>();
+	            		header.addAll(Arrays.asList(lines));
+	            		header.add("Expanded BitLy Url");
+	            		CSVUtils.writeLine(convertedTweet_writer, header);
+	            	}
+	            	count++;
+	            }
+	            // while loop ends here
+	            convertedTweet_writer.flush();
+	            convertedTweet_writer.close();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	}
 	public static void checkCSVreader() throws Exception
 	{
 		String tweeturlfilepath="src/main/resources/tweetUrlData";
 		String tweeturl=tweeturlfilepath+"/tweetdata.csv";
 		List<String>urls=CSVReaderUtils.tweetUrlConverter(tweeturl, ",");
 		int count=0;
+		
 		for(String url:urls)
 		{
-			if(count==0)
-			{
+			/*if(count==0)
+			{*/
 				String htmlpage = restTemplate.getForObject(url, String.class);
 				//System.out.println(htmlpage);
 				 String filename="src/main/resources/tweetUrlData/input.html";
@@ -95,7 +176,12 @@ public class Test {
 				// a with href
 				 //System.out.println(links);
 				 //System.out.println(links.get(0).absUrl("data-expanded-url"));
-				 String bitlyurl=links.get(0).absUrl("data-expanded-url");
+				String bitlyurl="Unable To fetch the expanded bitly url";
+				if(links.size()>0)
+				{
+					bitlyurl=links.get(0).absUrl("data-expanded-url");
+				}
+				
 				 HttpHeaders headers = new HttpHeaders();
 				 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -117,10 +203,10 @@ public class Test {
 					System.out.println(e.baseUri());
 				}*/
 
-			}
+			//}
 			
 			
-			count++;
+			//count++;
 		}
 		
 	}
