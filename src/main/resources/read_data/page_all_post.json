@@ -1,68 +1,55 @@
 {
+  "header" : [ "ID", "post", "created date", "updated date", "head line", "type", "link", "perm link", " full picture url", "share count", "like count", " image", "full link", "cid code" ],
   "data" : [ {
+    "id" : "102134663215085_1742570239171511",
+    "message" : "Do munis still belong in your portfolio after tax reform? We think so. Learn why: http://bit.ly/2OlsvpE",
+    "created_time" : "2018-08-07T21:05:04+0000",
+    "updated_time" : "2018-08-07T21:05:04+0000",
+    "name" : "Munis offer tax-advantaged income and more",
+    "type" : "link",
+    "link" : "https://bit.ly/2OlsvpE",
+    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1742570239171511/",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQArUpSTm-xqrPeZ&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FHv167.png&_nc_hash=AQBRETjBbkFBf-ew",
+    "shares" : {
+      "count" : "6"
+    },
+    "likes" : {
+      "summary" : {
+        "total_count" : "9"
+      }
+    }
+  }, {
     "id" : "102134663215085_1737596539668881",
     "message" : "What should investors watch for in today’s economy? Listen to learn more: http://bit.ly/2Md1ROP",
     "created_time" : "2018-08-04T21:10:03+0000",
     "updated_time" : "2018-08-04T21:10:03+0000",
+    "name" : null,
     "type" : "status",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
+    "link" : null,
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1737596539668881/",
-    "promotable_id" : "102134663215085_1737596539668881",
+    "full_picture" : null,
+    "shares" : null,
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 4,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "4"
       }
     }
   }, {
     "id" : "102134663215085_1734247013337167",
+    "message" : null,
     "created_time" : "2018-08-02T20:44:01+0000",
     "updated_time" : "2018-08-02T20:44:01+0000",
     "name" : "Gen X And Millennial Parents Are Teaching Their Kids About Money Earlier Than Past Generations",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.forbes.com/sites/reneemorad/2018/07/31/gen-x-and-millennial-parents-are-teaching-their-kids-about-money-earlier-than-past-generations/#4ba18fbd4114",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1734247013337167/",
-    "promotable_id" : "102134663215085_1734247013337167",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQCRURY0hPhdSnvc&url=https%3A%2F%2Fthumbor.forbes.com%2Fthumbor%2F600x315%2Fhttps%253A%252F%252Fspecials-images.forbesimg.com%252Fdam%252Fimageserve%252F1068398021%252F960x0.jpg%253Ffit%253Dscale&_nc_hash=AQCk86ipvKGxDgnx",
     "shares" : {
-      "count" : 16
+      "count" : "16"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 60,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "60"
       }
     }
   }, {
@@ -72,33 +59,15 @@
     "updated_time" : "2018-07-31T21:00:49+0000",
     "name" : "5 money lessons for children",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2OwilTK",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1731030933658775/",
-    "promotable_id" : "102134663215085_1731030933658775",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQDLQPd4KtgCfx0Z&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FHkYu6.png&_nc_hash=AQC11ieY8pwX2nZF",
     "shares" : {
-      "count" : 34
+      "count" : "34"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 48,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "48"
       }
     }
   }, {
@@ -108,65 +77,31 @@
     "updated_time" : "2018-07-28T21:05:04+0000",
     "name" : "Podcast: The best of Capital Ideas",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2NR3sua",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1726235430804992/",
-    "promotable_id" : "102134663215085_1726235430804992",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQDcoIW4BfmAPWR-&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FHg8kD.png&_nc_hash=AQA6akjxrCibNdMM",
+    "shares" : null,
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 11,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "11"
       }
     }
   }, {
     "id" : "102134663215085_1721561441272391",
+    "message" : null,
     "created_time" : "2018-07-25T21:30:26+0000",
     "updated_time" : "2018-07-27T20:02:06+0000",
     "name" : "Is 12-years-old too young to talk to your kid about money?",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.usatoday.com/story/money/2018/07/25/12-years-old-too-young-talk-kids-money/825538002/",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1721561441272391/",
-    "promotable_id" : "102134663215085_1721561441272391",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQDkNkDCXpHBkF1U&url=https%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2Fc0fb9b3616a1c8732da40abc9c0664c06e82d697%2Fc%3D0-242-4752-2927%2Flocal%2F-%2Fmedia%2F2018%2F07%2F24%2FUSATODAY%2FUSATODAY%2F636680357206877732-KidsTalkSurvey.JPG%3Fwidth%3D3200%26height%3D1680%26fit%3Dcrop&_nc_hash=AQC5hi4S5sXn0cJq",
     "shares" : {
-      "count" : 23
+      "count" : "23"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 77,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 22,
-        "can_comment" : false
+        "total_count" : "77"
       }
     }
   }, {
@@ -176,33 +111,15 @@
     "updated_time" : "2018-08-02T20:26:40+0000",
     "name" : "5 money lessons to teach children",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2v3DZpv",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1721474044614464/",
-    "promotable_id" : "102134663215085_1721474044614464",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQCXHqUGi34dDfxo&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FHcnIj.jpg&_nc_hash=AQDmlGBvSYa7WI82",
     "shares" : {
-      "count" : 6
+      "count" : "6"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 19,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 5,
-        "can_comment" : false
+        "total_count" : "19"
       }
     }
   }, {
@@ -212,33 +129,15 @@
     "updated_time" : "2018-07-19T21:50:06+0000",
     "name" : "Read our 2018 Midyear Outlook",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2uB4e7p",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1711628102265725/",
-    "promotable_id" : "102134663215085_1711628102265725",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQAuLpz1w18PdzOn&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FH3kB7.jpg&_nc_hash=AQBHOw1Ag5460PiP",
     "shares" : {
-      "count" : 9
+      "count" : "9"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 16,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "16"
       }
     }
   }, {
@@ -248,33 +147,15 @@
     "updated_time" : "2018-08-02T14:29:03+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1706957352732800/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1706957352732800/",
-    "promotable_id" : "102134663215085_1706957352732800",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/37230943_1706957356066133_8898174245826199552_o.jpg?_nc_cat=0&oh=1250b1060f71cc58601ca9c667f72b5a&oe=5BCD0C80",
     "shares" : {
-      "count" : 4
+      "count" : "4"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 14,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 6,
-        "can_comment" : false
+        "total_count" : "14"
       }
     }
   }, {
@@ -284,33 +165,15 @@
     "updated_time" : "2018-07-14T22:37:20+0000",
     "name" : "A Q&A with investment counselor Lynne Knox",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2Lf8yzr",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1703973056364563/",
-    "promotable_id" : "102134663215085_1703973056364563",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQDVrdw-uzW99RlX&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FGUstg.png&_nc_hash=AQAfYlJObspWYywp",
     "shares" : {
-      "count" : 8
+      "count" : "8"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 45,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 2,
-        "can_comment" : false
+        "total_count" : "45"
       }
     }
   }, {
@@ -320,33 +183,15 @@
     "updated_time" : "2018-07-14T12:54:53+0000",
     "name" : "Emerging consumers are leapfrogging the developed world",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2N9ZFrF",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1699395370155665/",
-    "promotable_id" : "102134663215085_1699395370155665",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQCgJshPmPBaeJ8M&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FGQNWr.png&_nc_hash=AQA2AG-EKoR_c0BI",
     "shares" : {
-      "count" : 8
+      "count" : "8"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 20,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 1,
-        "can_comment" : false
+        "total_count" : "20"
       }
     }
   }, {
@@ -356,33 +201,15 @@
     "updated_time" : "2018-07-04T20:28:24+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1688471881248014/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1688471881248014/",
-    "promotable_id" : "102134663215085_1688471881248014",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/36646948_1688471891248013_1819978755158835200_o.jpg?_nc_cat=0&oh=800367d67b89b533f09c62dbd880f377&oe=5C0ECA42",
     "shares" : {
-      "count" : 4
+      "count" : "4"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 48,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 1,
-        "can_comment" : false
+        "total_count" : "48"
       }
     }
   }, {
@@ -392,33 +219,15 @@
     "updated_time" : "2018-07-01T21:35:03+0000",
     "name" : "An estate planning checklist",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2N7mcWK",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1684324368329432/",
-    "promotable_id" : "102134663215085_1684324368329432",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQAoCq6nvLKH7C1K&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FGyJgD.jpg&_nc_hash=AQAn8K0eGz-alNlv",
     "shares" : {
-      "count" : 14
+      "count" : "14"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 36,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "36"
       }
     }
   }, {
@@ -426,34 +235,17 @@
     "message" : "Don't be thrown off track by bumps in the road. These 6 steps can help you stay focused when the market dips. http://bit.ly/2LOl9JM",
     "created_time" : "2018-06-29T20:33:00+0000",
     "updated_time" : "2018-07-10T17:39:02+0000",
+    "name" : null,
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2LOl9JM",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1681056585322877/",
-    "promotable_id" : "102134663215085_1681056585322877",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/31855781_1613883948706808_6971462864712237056_n.png?oh=f66992d5a29b3e284292d8b164177de9&oe=5BFC1177",
     "shares" : {
-      "count" : 6
+      "count" : "6"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 29,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 3,
-        "can_comment" : false
+        "total_count" : "29"
       }
     }
   }, {
@@ -463,33 +255,15 @@
     "updated_time" : "2018-06-28T12:20:20+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1674963919265477/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1674963919265477/",
-    "promotable_id" : "102134663215085_1674963919265477",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/36039332_1674963922598810_5832146991865397248_n.jpg?_nc_cat=0&oh=d573e4e5b8700723313b0c06a63caec9&oe=5C0BF7BA",
     "shares" : {
-      "count" : 3
+      "count" : "3"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 20,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 2,
-        "can_comment" : false
+        "total_count" : "20"
       }
     }
   }, {
@@ -499,33 +273,15 @@
     "updated_time" : "2018-06-24T04:18:32+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1671533636275172/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1671533636275172/",
-    "promotable_id" : "102134663215085_1671533636275172",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/36002897_1671533642941838_5154777739584077824_o.jpg?_nc_cat=0&oh=0b1974d519e98973f5dff2189a819dce&oe=5C0110F5",
     "shares" : {
-      "count" : 2
+      "count" : "2"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 39,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 2,
-        "can_comment" : false
+        "total_count" : "39"
       }
     }
   }, {
@@ -535,33 +291,15 @@
     "updated_time" : "2018-06-22T23:36:01+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1666933586735177/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1666933586735177/",
-    "promotable_id" : "102134663215085_1666933586735177",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/35893172_1666933596735176_2192389407980388352_o.jpg?_nc_cat=0&oh=f4037baeedbd251a11421ad9bbdf520d&oe=5C10DD29",
     "shares" : {
-      "count" : 27
+      "count" : "27"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 62,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 2,
-        "can_comment" : false
+        "total_count" : "62"
       }
     }
   }, {
@@ -571,33 +309,15 @@
     "updated_time" : "2018-07-18T16:03:12+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1662192377209298/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1662192377209298/",
-    "promotable_id" : "102134663215085_1662192377209298",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/35416429_1662192400542629_2921399272559607808_o.jpg?_nc_cat=0&oh=35e90a6c423e94be0105401fa269a7e7&oe=5BF9127C",
     "shares" : {
-      "count" : 1
+      "count" : "1"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 46,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 5,
-        "can_comment" : false
+        "total_count" : "46"
       }
     }
   }, {
@@ -607,33 +327,15 @@
     "updated_time" : "2018-06-15T22:35:03+0000",
     "name" : "Timeline Photos",
     "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1660021190759750/?type=3",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1660021190759750/",
-    "promotable_id" : "102134663215085_1660021190759750",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/35346516_1660021194093083_5893232666743930880_o.jpg?_nc_cat=0&oh=52fab4cbec87bf2cd6906a62d4228787&oe=5C13F5F5",
     "shares" : {
-      "count" : 7
+      "count" : "7"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 15,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 2,
-        "can_comment" : false
+        "total_count" : "15"
       }
     }
   }, {
@@ -641,34 +343,17 @@
     "message" : "We do things differently. Learn about our proprietary investment process and why we believe it's a smarter way of investing. http://bit.ly/2JvrdKp",
     "created_time" : "2018-06-12T21:36:12+0000",
     "updated_time" : "2018-06-12T21:36:12+0000",
+    "name" : null,
     "type" : "video",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://www.facebook.com/americanfunds/videos/1655802401181629/",
     "permalink_url" : "https://www.facebook.com/americanfunds/videos/1655802401181629/",
-    "promotable_id" : "102134663215085_1655802401181629",
+    "full_picture" : "https://scontent.xx.fbcdn.net/v/t15.0-10/p720x720/30834286_1655807101181159_6064742861335691264_n.jpg?_nc_cat=0&oh=2419f47bec2b0fe1964d9969b612aa50&oe=5BFC0E4A",
     "shares" : {
-      "count" : 12
+      "count" : "12"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 42,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
+        "total_count" : "42"
       }
     }
   }, {
@@ -678,221 +363,16 @@
     "updated_time" : "2018-07-05T01:46:25+0000",
     "name" : "Retirement Planning Calculator",
     "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
     "link" : "https://bit.ly/2JqxhUQ",
     "permalink_url" : "https://www.facebook.com/102134663215085/posts/1653654711396398/",
-    "promotable_id" : "102134663215085_1653654711396398",
+    "full_picture" : "https://external.xx.fbcdn.net/safe_image.php?d=AQAe6PYcyOUvTdY0&url=https%3A%2F%2Fd2jhuj1whasmze.cloudfront.net%2Fphotos%2Foriginal%2FG1UsR.png&_nc_hash=AQCvcNrCAy9wTsRA",
     "shares" : {
-      "count" : 19
+      "count" : "19"
     },
     "likes" : {
-      "data" : [ ],
       "summary" : {
-        "total_count" : 34,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 4,
-        "can_comment" : false
+        "total_count" : "34"
       }
     }
-  }, {
-    "id" : "102134663215085_1650189768409559",
-    "message" : "By saving for a child's education, you're planting a seed for the future. Learn about the advantages of a 529 account: http://bit.ly/2IXbNyF",
-    "created_time" : "2018-06-07T22:00:44+0000",
-    "updated_time" : "2018-06-08T20:22:44+0000",
-    "name" : "Timeline Photos",
-    "type" : "photo",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
-    "link" : "https://www.facebook.com/americanfunds/photos/a.111055435656341.18562.102134663215085/1650189768409559/?type=3",
-    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1650189768409559/",
-    "promotable_id" : "102134663215085_1650189768409559",
-    "shares" : {
-      "count" : 8
-    },
-    "likes" : {
-      "data" : [ ],
-      "summary" : {
-        "total_count" : 33,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 1,
-        "can_comment" : false
-      }
-    }
-  }, {
-    "id" : "102134663215085_1648090371952832",
-    "message" : "Did you include your retirement account in your spring cleaning? Follow these 6 steps to freshen up your investments. http://bit.ly/2LoKolU",
-    "created_time" : "2018-06-05T21:45:07+0000",
-    "updated_time" : "2018-06-05T21:45:07+0000",
-    "name" : "Spring clean your 401(k)",
-    "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
-    "link" : "https://bit.ly/2LoKolU",
-    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1648090371952832/",
-    "promotable_id" : "102134663215085_1648090371952832",
-    "shares" : {
-      "count" : 8
-    },
-    "likes" : {
-      "data" : [ ],
-      "summary" : {
-        "total_count" : 23,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 0,
-        "can_comment" : false
-      }
-    }
-  }, {
-    "id" : "102134663215085_1644996375595565",
-    "message" : "Quick quiz: What can a 529 be used for? http://bit.ly/2LP95ZD\n\nA) Internet access\nB) Welding classes\nC) College tuition\nD) All of the above",
-    "created_time" : "2018-06-02T21:15:04+0000",
-    "updated_time" : "2018-06-02T21:15:04+0000",
-    "name" : "7 surprising uses for a 529 plan",
-    "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
-    "link" : "https://bit.ly/2LP95ZD",
-    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1644996375595565/",
-    "promotable_id" : "102134663215085_1644996375595565",
-    "shares" : {
-      "count" : 3
-    },
-    "likes" : {
-      "data" : [ ],
-      "summary" : {
-        "total_count" : 21,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 4,
-        "can_comment" : false
-      }
-    }
-  }, {
-    "id" : "102134663215085_1642928455802357",
-    "message" : "Volatility has returned in 2018, and tech stocks have led markets both up and down. See the latest chart: http://bit.ly/2J3O1g2",
-    "created_time" : "2018-05-31T20:50:04+0000",
-    "updated_time" : "2018-05-31T20:50:04+0000",
-    "name" : "Is tech volatility here to stay?",
-    "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
-    "link" : "https://bit.ly/2J3O1g2",
-    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1642928455802357/",
-    "promotable_id" : "102134663215085_1642928455802357",
-    "shares" : {
-      "count" : 5
-    },
-    "likes" : {
-      "data" : [ ],
-      "summary" : {
-        "total_count" : 23,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 1,
-        "can_comment" : false
-      }
-    }
-  }, {
-    "id" : "102134663215085_1640828846012318",
-    "message" : "What can a 529 educational savings plan be used for? More than you may think. #529Day http://bit.ly/2IXbNyF",
-    "created_time" : "2018-05-29T18:51:50+0000",
-    "updated_time" : "2018-05-29T18:51:50+0000",
-    "name" : "7 surprising uses for a 529",
-    "type" : "link",
-    "privacy" : {
-      "allow" : "",
-      "deny" : "",
-      "description" : "Public",
-      "friends" : "",
-      "value" : "EVERYONE"
-    },
-    "link" : "https://bit.ly/2IXbNyF",
-    "permalink_url" : "https://www.facebook.com/102134663215085/posts/1640828846012318/",
-    "promotable_id" : "102134663215085_1640828846012318",
-    "shares" : {
-      "count" : 11
-    },
-    "likes" : {
-      "data" : [ ],
-      "summary" : {
-        "total_count" : 28,
-        "can_like" : false,
-        "has_liked" : false
-      }
-    },
-    "comments" : {
-      "data" : [ ],
-      "summary" : {
-        "order" : "ranked",
-        "total_count" : 1,
-        "can_comment" : false
-      }
-    }
-  } ],
-  "paging" : {
-    "cursors" : {
-      "before" : "Q2c4U1pXNTBYM0YxWlhKNVgzTjBiM0o1WDJsa0R5TXhNREl4TXpRMk5qTXlNVFV3T0RVNk5UZA3dNRGd6TXpBeE9ETTFOak0xTkRRME5ROE1ZAWEJwWDNOMGIzSjVYMmxrRHlBeE1ESXhNelEyTmpNeU1UVXdPRFZAmTVRjek56VTVOalV6T1RZAMk9EZAzRNUThFZAEdsdFpRWmJaaFlyQVE9PQZDZD",
-      "after" : "Q2c4U1pXNTBYM0YxWlhKNVgzTjBiM0o1WDJsa0R5TXhNREl4TXpRMk5qTXlNVFV3T0RVNk9EWXlNams1T1RrME5USXlPRE16TVRVME9BOE1ZAWEJwWDNOMGIzSjVYMmxrRHlBeE1ESXhNelEyTmpNeU1UVXdPRFZAmTVRZAME1EZA3lPRGcwTmpBeE1qTXhPQThFZAEdsdFpRWmJEYUZAHQVE9PQZDZD"
-    },
-    "next" : "https://graph.facebook.com/v3.0/102134663215085/posts?access_token=EAAdizlJo95EBANMGCLXB5ITXomYy6yBErVmaipLAkd1Ijx0z4MR86SQ3Uow2WWAlIF1aZBjL00asqnyQV5gy9RUWA1yOBHr8F42hq57zP7t5IdOpNJZApmwtL4ZAIRpvHhMArAusiRLlgYNYwZC130cMFwDSCVCAfO4OZCXtPxdVM3yWCCIe78RxeRN2EmvCqV5wUiRCr1ioWhZB22dejZB&fields=id%2Cmessage%2Ccreated_time%2Cupdated_time%2Cplace%2Cname%2Cparent_id%2Ctargeting%2Ctype%2Cprivacy%2Clink%2Cpermalink_url%2Cfeed_targeting%2Cpromotable_id%2Cshares%2Clikes.limit%280%29.summary%28true%29%2Ccomments.limit%280%29.summary%28true%29&since=2017-11-07&until=2018-08-07&limit=25&after=Q2c4U1pXNTBYM0YxWlhKNVgzTjBiM0o1WDJsa0R5TXhNREl4TXpRMk5qTXlNVFV3T0RVNk9EWXlNams1T1RrME5USXlPRE16TVRVME9BOE1ZAWEJwWDNOMGIzSjVYMmxrRHlBeE1ESXhNelEyTmpNeU1UVXdPRFZAmTVRZAME1EZA3lPRGcwTmpBeE1qTXhPQThFZAEdsdFpRWmJEYUZAHQVE9PQZDZD"
-  }
+  } ]
 }

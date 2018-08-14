@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,9 +8,23 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Calendar;
 
-import com.capitalone.socialApiFb.model.CSVUtils;
+import org.apache.poi.hssf.usermodel.HSSFClientAnchor;
+import org.apache.poi.hssf.usermodel.HSSFPatriarch;
+import org.apache.poi.hssf.usermodel.HSSFPicture;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.ClientAnchor;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,8 +32,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class PageAllpostLogic {
 	static ObjectMapper mapper = new ObjectMapper();
-	public static void main(String[] args) {
+
+	 
+	public static void main(String[] args) throws Exception {
 		String fileName="src/main/resources/read_data/page_all_post.json";
+		String excelfilename="src/main/resources/write_data/example.xls";
 		//ClassLoader classLoader = PageAllpostLogic.class.getClass().getClassLoader();
 		//File file = new File(classLoader.getResource(fileName).getFile());
 		JsonNode root=null;
@@ -43,28 +61,36 @@ public class PageAllpostLogic {
 				Files.createDirectories(directory);
 				Files.createFile(newFilePath);
 			 FileWriter csv_writer = new FileWriter(csvfilename);
-			 CSVUtils.writeLine(csv_writer, Arrays.asList("Number ","HeadLine","Post Text", "Image Url","Download Img File","CTA URL","Expanded CTA","TimeStamp","Post Date","ID","Update ID", "Status Link","Image"));
+			// CSVUtils.writeLine(csv_writer, Arrays.asList( "ID", "post", "created date", "updated date", "head line", "type", "link", "perm link", " full picture url", "share count", "like count", " image", "full link", "cid code"));
 			 Integer count=1;
+			 /* Create a Workbook and Worksheet */
+             HSSFWorkbook my_workbook = new HSSFWorkbook();
+             HSSFSheet my_sheet = my_workbook.createSheet("MyBanner"); 
 			 for(PageAllPostModel p: datanode.getData())
 			 {
-				 CSVUtils.writeLine(csv_writer, 
-						 Arrays.asList(count.toString(),
-								 (null!=p.getName()?p.getName():""),
-								 (null!=p.getMessage()?p.getMessage():""),
-								 (null!=p.getPermalink_url().toString()?p.getPermalink_url():""),
-								 "Download Img File",
-								 (null!=p.getLink()?p.getLink():""),
-								 "Expanded CTA",
-								 (null!=p.getCreated_time()?p.getCreated_time():""),
-								 (null!=p.getCreated_time()?p.getCreated_time():""),
-								 (null!=p.getId()?p.getId():""),
-								 (null!=p.getPromotable_id()?p.getPromotable_id():""),
-								 (null!=p.getPermalink_url()?p.getPermalink_url():""),
-								 "Image"));
-				 count++;
+				 if(null!=p.getFull_picture())
+				 {
+		                /* Add Picture to workbook and get a index for the picture */
+		                int my_picture_id = my_workbook.addPicture(fetchFile(p.getFull_picture()), Workbook.PICTURE_TYPE_JPEG);
+		                /* Close Input Stream */
+		                /* Create the drawing container */
+		                HSSFPatriarch drawing = my_sheet.createDrawingPatriarch();
+		                /* Create an anchor point */
+		                ClientAnchor my_anchor = new HSSFClientAnchor();
+		                /* Define top left corner, and we can resize picture suitable from there */
+		                my_anchor.setCol1(2);
+		                my_anchor.setRow1(count);           
+		                /* Invoke createPicture and pass the anchor point and ID */
+		                HSSFPicture  my_picture = drawing.createPicture(my_anchor, my_picture_id);
+		                /* Call resize method, which resizes the image */
+		                my_picture.resize();  
+				 }
+		                count++;
 			 }
-			 csv_writer.flush();
-			 csv_writer.close();
+			 FileOutputStream out = new FileOutputStream(new File(excelfilename));
+             my_workbook.write(out);
+             out.close();
+				System.out.println(fileName + " written successfully");
 			 
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
@@ -92,6 +118,28 @@ public class PageAllpostLogic {
         } catch (IOException e) {
             e.printStackTrace();
         }
+	}
+	public static  byte[] fetchFile(String url) throws IOException 
+	{
+
+	    RestTemplate restTemplate = new RestTemplate();
+	    restTemplate.getMessageConverters().add(
+	            new ByteArrayHttpMessageConverter());
+
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_OCTET_STREAM));
+
+	    HttpEntity<String> entity = new HttpEntity<String>(headers);
+
+	    ResponseEntity<byte[]> response = restTemplate.exchange(
+	    		url,
+	            HttpMethod.GET, entity, byte[].class, "1");
+
+	    if (response.getStatusCode() == HttpStatus.OK) 
+	    {
+	        Files.write(Paths.get("google.png"), response.getBody());
+	    }
+	    return response.getBody();
 	}
 
 }

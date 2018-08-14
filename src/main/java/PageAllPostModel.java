@@ -55,6 +55,13 @@ public class PageAllPostModel
 	private String link;
 	private String permalink_url;
 	private String promotable_id;
+	private String full_picture;
+	public String getFull_picture() {
+		return full_picture;
+	}
+	public void setFull_picture(String full_picture) {
+		this.full_picture = full_picture;
+	}
 	public String getId() {
 		return id;
 	}

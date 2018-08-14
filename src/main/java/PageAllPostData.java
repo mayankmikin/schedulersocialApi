@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PageAllPostData 
 {
+	private ArrayList<String>header;
 	private ArrayList<PageAllPostModel>data;
 
 	public ArrayList<PageAllPostModel> getData() {
@@ -22,6 +23,14 @@ public class PageAllPostData
 
 	public PageAllPostData() {
 		super();
+	}
+
+	public ArrayList<String> getHeader() {
+		return header;
+	}
+
+	public void setHeader(ArrayList<String> header) {
+		this.header = header;
 	}
 
 	@Override
