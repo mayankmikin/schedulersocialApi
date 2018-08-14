@@ -15,6 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFPicture;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.ClientAnchor;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -70,6 +71,14 @@ public class PageAllpostLogic {
 			 {
 				 if(null!=p.getFull_picture())
 				 {
+					 Row row = my_sheet.createRow(count);
+					 	
+					 //first column
+			            row.createCell(0)
+			                    .setCellValue(1);
+
+			            row.createCell(1)
+			                    .setCellValue(p.getId());
 		                /* Add Picture to workbook and get a index for the picture */
 		                int my_picture_id = my_workbook.addPicture(fetchFile(p.getFull_picture()), Workbook.PICTURE_TYPE_JPEG);
 		                /* Close Input Stream */
@@ -78,8 +87,10 @@ public class PageAllpostLogic {
 		                /* Create an anchor point */
 		                ClientAnchor my_anchor = new HSSFClientAnchor();
 		                /* Define top left corner, and we can resize picture suitable from there */
-		                my_anchor.setCol1(2);
-		                my_anchor.setRow1(count);           
+		                //set second column
+		                my_anchor.setCol1(10);
+		                my_anchor.setRow1(count);  
+		                
 		                /* Invoke createPicture and pass the anchor point and ID */
 		                HSSFPicture  my_picture = drawing.createPicture(my_anchor, my_picture_id);
 		                /* Call resize method, which resizes the image */
@@ -90,7 +101,7 @@ public class PageAllpostLogic {
 			 FileOutputStream out = new FileOutputStream(new File(excelfilename));
              my_workbook.write(out);
              out.close();
-				System.out.println(fileName + " written successfully");
+				System.out.println(excelfilename + " written successfully");
 			 
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
